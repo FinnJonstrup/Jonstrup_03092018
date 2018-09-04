@@ -1,38 +1,38 @@
 table 123456700 "CSD Seminar Setup"
+// CSD1.00 - 2018-01-01 - D. E. Veloper
+// Chapter 5 - Lab 3-1
 {
-    DataClassification = ToBeClassified;
+    Caption = 'Seminar Setup';
 
     fields
     {
-        field(10; "Primary Key"; Code[10])
+        field(10;"Primary Key";Code[10])
         {
             Caption = 'Primary Key';
-        }
-        field(20; "Seminary Nos."; Code[20])
-        {
-            Caption = 'Seminary Nos.';
             TableRelation = "No. Series";
         }
-        field(30; "Seminary Registration Nos."; Code[20])
+        field(20;"Seminar Nos.";Code[20])
         {
-            Caption = 'Seminary Registration Nos.';
+            Caption = 'Seminar Nos.';
             TableRelation = "No. Series";
         }
-        field(40; "Posted Seminary Reg. Nos."; Code[20])
+        field(30;"Seminar Registration Nos.";code[20])
         {
-            Caption = 'Posted Seminary Reg. Nos.';
+            Caption = 'Seminar Registration Nos.';
+            TableRelation = "No. Series";
+        }
+        field(40;"Posted Seminar Reg. Nos.";code[20])
+        {
+            Caption = 'Posted Seminar Reg. Nos.';
             TableRelation = "No. Series";
         }
     }
 
     keys
     {
-        key(PK; "Primary Key")
+        key(PK;"Primary Key")
         {
             Clustered = true;
         }
     }
-
-    
-
 }
