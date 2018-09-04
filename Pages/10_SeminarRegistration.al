@@ -113,7 +113,7 @@ page 123456710 "CSD Seminar Registration"
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 Provider = SeminarRegistrationLines;
-                SubPageLink = "No." = field ("Bill-to Customer No.");
+                SubPageLink = "No." = field("Bill-to Customer No.");
             }
 
             systempart("Links"; Links)
@@ -161,6 +161,20 @@ page 123456710 "CSD Seminar Registration"
                 ShortcutKey = F9;
                 RunObject = codeunit "CSD Seminar-Post (Yes/No)";
             }
+            action("&Print")
+            {
+                Caption = '&Print';
+                Image = Print;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    SeminarReportSelection : Record "CSD Seminar Report Selections";
+                begin
+                    SeminarReportSelection.PrintReportSelection(SeminarReportSelection.Usage::Registration,Rec);
+                end;
+            }            
         }
     }
 }
